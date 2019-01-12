@@ -368,6 +368,11 @@ public:
                    std::string type,
                    bool tracePointeeIn,
                    bool tracePointeeOut);
+  void traceArgArr(ref<Expr> arg, Expr::Width width, size_t count,
+                   std::string name,
+                   std::string type,
+                   bool tracePointeeIn,
+                   bool tracePointeeOut);
   void traceArgFunPtr(ref<Expr> arg,
                       std::string name);
   void traceRet();
@@ -384,6 +389,10 @@ public:
                      std::string name,
                      std::string type,
                      bool trace_in, bool trace_out);
+  void traceExtraPtrArr(size_t ptr, Expr::Width width, size_t count,
+                        std::string name,
+                        std::string type,
+                        bool trace_in, bool trace_out);
   void traceExtraPtrField(size_t ptr, int offset,
                           Expr::Width width, std::string name,
                           bool trace_in, bool trace_out);

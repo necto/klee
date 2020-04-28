@@ -168,7 +168,9 @@ ExecutionState::ExecutionState(const ExecutionState& state):
   for(auto it = havocs.begin(); it != havocs.end(); ++it) {
     it->first->refCount++;
   }
-  LOG_LA("Cloning ES " << (void*)this << " from " << (void*)&state);
+  if (!loopInProcess.isNull()) {
+    LOG_LA("Cloning ES " << (void *)this << " from " << (void *)&state);
+  }
 }
 
 void ExecutionState::addHavocInfo(const MemoryObject *mo,
